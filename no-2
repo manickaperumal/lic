@@ -1,0 +1,451 @@
+        			                      #json
+        			
+ json-->javascript object notation
+ 
+ (1.oru data vai store seiya and athai exchange seiya use panrom .
+  2.it is light weight so easy ah transfer seiyalam.
+  3.the filename extension is .json       
+  4.json internet media type is application/json
+  
+  1.json is easy to read and write
+  2.json is language independent
+  3.we can use in all programming language
+  4.provide support for all browers
+  
+  
+  we can store different type of data in json:
+  
+  #ex:
+  
+  {
+  "name":"ram","gender":male,"age":25,"ismarried":false,"marks":[58,89,56,87],"average":74.0,"hobbies":null,
+  "address":{ "street" : "cherry road"
+              "city":"salem"
+              "pincode":628003 }
+              
+  }
+  
+          
+  #example:
+  
+		book={}
+		book['tom']={'name':'tom',
+		'address':'1 red street',
+		'phone':12345
+		}
+
+		book['bob']={'name':'bob','address':'1 green street',
+		'phone':2546
+		}
+
+		import json
+		s=json.dumps(book)
+		print(s)        
+		
+#output:
+
+	manikam@manikam:~$ python3 a.py
+	{"tom": {"name": "tom", "address": "1 red street", "phone": 12345}, "bob": {"name": "bob", "address": "1 green street", "phone": 2546}}
+	manikam@manikam:~$ 
+
+
+
+
+
+#doubt program:
+
+		book={}
+		book['tom']={'name':'tom',
+		'address':'1 red street',
+		'phone':12345
+		}
+
+		book['bob']={'name':'bob','address':'1 green street',
+		'phone':2546
+		}
+
+		import json
+		s=json.dumps(book)
+		with open("home://downloads//sample1.txt","w")as f:
+		    f.write(s)
+    
+#output:
+
+	manikam@manikam:~$ python3 a.py
+	Traceback (most recent call last):
+	  File "a.py", line 13, in <module>
+	    with open("home://downloads//sample1.txt","w")as f:
+	FileNotFoundError: [Errno 2] No such file or directory: 'home://downloads//sample1.txt
+		
+		
+#test:
+
+class one:
+
+
+		    def __init__(self,name,age,std,medium):
+			self.name=name
+			self.age=age
+			self.std=std
+			self.medium=medium
+			
+		    def A(self):
+			print(self.name,self.age,self.std,self.medium)
+
+
+		stud1=one("aswin",22,11,"tamil")   
+		stud1.A()
+
+#output:
+
+		manikam@manikam:~$ python3 a3.py
+		aswin 22 11 tamil
+		
+							#json functions
+							
+							
+#example-1
+
+		import json
+		print(dir(json))
+
+#output:
+
+		manikam@manikam:~$ python3 a4.py
+		['JSONDecodeError', 'JSONDecoder', 'JSONEncoder', '__all__', '__author__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__version__', '_default_decoder', '_default_encoder', 'codecs', 'decoder', 'detect_encoding', 'dump', 'dumps', 'encoder', 'load', 'loads', 'scanner']
+		manikam@manikam:~$ 
+				
+				
+		
+#example-2:
+
+		import json
+
+		# some JSON:
+		x =  '{ "name":"John", "age":30, "city":"New York"}'
+		print(type(x))
+
+		# parse x:
+		y = json.loads(x)
+
+		print (y)
+		print(type(y))
+
+#output:
+
+		manikam@manikam:~$ python3 a3.py
+		<class 'str'>
+		{'name': 'John', 'age': 30, 'city': 'New York'}
+		<class 'dict'>
+		manikam@manikam:~$ 
+
+
+#learn:
+	1)loads() :
+	
+	   we can change our json file to normal file using loads() function
+
+
+
+#ex-2:
+
+		import json
+
+		# a Python object (dict):
+		x = {
+		  "name": "John",
+		  "age": 30,
+		  "city": "New York"
+		}
+		print(type(x))
+
+		# convert into JSON:
+		y = json.dumps(x)
+
+		# the result is a JSON string:
+		print(y)
+		print(type(y))
+
+#output:
+
+		manikam@manikam:~$ python3 a4.py
+		<class 'dict'>
+		{"name": "John", "age": 30, "city": "New York"}
+		<class 'str'>
+		manikam@manikam:~$ 
+
+
+
+#learn:
+
+		dumps():
+		
+		   we can change our normal file to json file using dumps() function
+
+
+
+#super for me:
+
+			import json
+			d={}
+
+			class one:
+
+
+		    def __init__(self,name,age,std,medium):
+			global d
+			self.name=name
+			self.age=age
+			self.std=std
+			self.medium=medium
+			d={"name":self.name,"age":self.age,"std":self.std,"medium":self.medium}
+			print(type(d))
+
+		    def A(self):
+		      j=json.dumps(d)
+		      return j
+		       
+
+		stud1=one("aswin",22,11,"tamil")   
+		o=stud1.A()
+		print(o)
+		print(type(o))
+
+
+#output:
+
+		
+		manikam@manikam:~$ python3 a4.py
+		<class 'dict'>
+		{"name": "aswin", "age": 22, "std": 11, "medium": "tamil"}
+		<class 'str'>
+		manikam@manikam:~$ 
+
+
+
+#def:
+
+	any python objects i can convert into json strings
+	
+#example:
+
+		import json
+
+		print(json.dumps({"name": "John", "age": 30}))
+		print(json.dumps(["apple", "bananas"]))
+		print(json.dumps(("apple", "bananas")))
+		print(json.dumps("hello"))
+		print(json.dumps(42))
+		print(json.dumps(31.76))
+		print(json.dumps(True))
+		print(json.dumps(False))
+		print(json.dumps(None))
+		
+#output:
+
+		manikam@manikam:~$ python3 a3.py
+		{"name": "John", "age": 30}
+		["apple", "bananas"]
+		["apple", "bananas"]
+		"hello"
+		42
+		31.76
+		true
+		false
+		null
+		manikam@manikam:~$ 
+
+
+#def:						    #indent
+#
+		it is not very easy to read, with no indentations and line breaks.
+
+		The json.dumps() method has parameters to make it easier to read the result:
+
+
+#example:
+
+		import json
+		d={}
+
+		class one:
+
+
+		    def __init__(self,name,age,std,medium):
+			global d
+			self.name=name
+			self.age=age
+			self.std=std
+			self.medium=medium
+			d={"name":self.name,"age":self.age,"std":self.std,"medium":self.medium}
+			print(type(d))
+
+		    def A(self):
+		      j=json.dumps(d,indent=4)
+		      return j
+		       
+
+		stud1=one("aswin",22,11,"tamil")   
+		o=stud1.A()
+		print(o)
+		print(type(o))
+
+#output:
+
+		manikam@manikam:~$ python3 a4.py
+		<class 'dict'>
+		{
+		    "name": "aswin",
+		    "age": 22,
+		    "std": 11,
+		    "medium": "tamil"
+		}
+		<class 'str'>
+		manikam@manikam:~$ 
+
+#learn:
+
+	i can store a value properly using indent parameter
+
+
+						#order the result
+						
+#def:
+
+       Use the sort_keys parameter to specify if the result should be sorted or not						
+
+#example:
+
+		import json
+		d={}
+
+		class one:
+
+
+		    def __init__(self,name,age,std,medium):
+			global d
+			self.name=name
+			self.age=age
+			self.std=std
+			self.medium=medium
+			d={"name":self.name,"age":self.age,"std":self.std,"medium":self.medium}
+			print(type(d))
+
+		    def A(self):
+		      j=json.dumps(d,indent=4,sort_keys=True)
+		      return j
+		       
+
+		stud1=one("aswin",22,11,"tamil")   
+		o=stud1.A()
+		print(o)
+		print(type(o))
+
+output:
+
+			manikam@manikam:~$ python3 a4.py
+			<class 'dict'>
+			{
+			    "name": "aswin",
+			    "age": 22,
+			    "std": 11,
+			    "medium": "tamil"
+			}
+			<class 'str'>
+			manikam@manikam:~$ 
+
+
+#ex:1							#using json file creating
+							
+# Python program to write JSON
+# to a file
+  
+  
+import json
+  
+# Data to be written
+dictionary ={
+    "name" : "sathiyajith",
+    "rollno" : 56,
+    "cgpa" : 8.6,
+    "phonenumber" : "9976770500"
+}
+  
+# Serializing json 
+json_object = json.dumps(dictionary, indent = 4)
+  
+# Writing to sample.json
+with open("sample.json", "w") as outfile:
+    outfile.write(json_object)
+    
+    
+#output:
+
+{
+    "name": "sathiyajith",
+    "rollno": 56,
+    "cgpa": 8.6,
+    "phonenumber": "9976770500"
+}						
+
+#ex:3							#writing a json file
+
+		import json
+		d={}
+
+		class one:
+
+
+		    def __init__(self,name,age,std,medium):
+			global d
+			self.name=name
+			self.age=age
+			self.std=std
+			self.medium=medium
+			d={"name":self.name,"age":self.age,"std":self.std,"medium":self.medium}
+			print(type(d))
+
+		    def A(self):
+		      j=json.dumps(d,indent=4,sort_keys=True)
+		      return j
+		       
+
+		stud1=one("aswin",22,11,"tamil")   
+		o=stud1.A()
+
+		with open("first.json","w")as outfile:
+		    outfile.write(o)
+		    
+		    
+#output:
+
+			{
+			    "age": 22,
+			    "medium": "tamil",
+			    "name": "aswin",
+			    "std": 11
+			}
+			
+#learn:
+
+	how to create a json file and see in notepad
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		    
+		  			
