@@ -1,4 +1,16 @@
 this is for learning git
+<<<<<<< HEAD
 
 
 
+=======
+so you should study a lot man
+you have a lot of work to do
+>>>>>>> 4b7a617f591a2197ad57feba159c81e3edce706e
+
+
+
+
+my aim to become a programmer
+i love python 
+i have a lot of work to do 
